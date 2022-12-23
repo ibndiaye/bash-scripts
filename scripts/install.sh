@@ -89,12 +89,12 @@ read -r -p "Install FlatPaks? (y/n)" input
 if [[ "$input" == "y" ]]
 then
     flatpakProgramList=("com.discordapp.Discord" "com.ultimaker.cura" "com.visualstudio.code" "com.github.tchx84.Flatseal" "com.jetbrains.IntelliJ-IDEA-Community"
-    "com.microsoft.Teams" "net.brinkervii.grapejuice" "org.telegram.desktop" "io.github.mimbrero.WhatsAppDesktop")
+    "com.microsoft.Teams" "net.brinkervii.grapejuice" "org.telegram.desktop" "io.github.mimbrero.WhatsAppDesktop" "com.anydesk.Anydesk")
     yay -S --noconfirm --needed flatpak
     for p in "${flatpakProgramList[@]}"
     do
         echo "installing $p"
-        flatpak install -y --noninteractive "$p"
+        flatpak install flathub -y --noninteractive "$p"
         echo "$p installed"
     done
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
