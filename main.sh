@@ -5,20 +5,26 @@ printf "Quick Setup Script\n 1) Setup Section\n 2) Install Section \n 3) Backup 
 read -p "Selection: " input
 
 
-if (( $input == 1 ))
-then
-    source scripts/setup.sh
-fi
+input=false
 
-if (($input==2))
-then
-    source scripts/install.sh
-fi
-
-if (($input==3))
-then
-    source scripts/backup.sh
-fi
-
+while ! $input 
+do
+  if (( $input == 1 ))
+  then
+      source scripts/setup.sh
+      input=true
+      elif (( $input==2 ))
+      then
+          source scripts/install.sh
+          input=true
+          elif (( $input==3 ))
+          then
+              source scripts/backup.sh
+              input=true
+              else
+                echo "no input given"
+                input=true
+  fi
+done
 
 # export $LIST="/scripts/backup.sh"

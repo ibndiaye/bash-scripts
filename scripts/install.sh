@@ -1,4 +1,4 @@
-what#!/bin/bash
+#!/bin/bash
 #
 #
 
@@ -50,7 +50,7 @@ fi
 read -r -p "Install Pkgs? (y/n)" input
 if [[ "$input" == "y" ]]
 then
-    pkglist=("lazygit" "maim" "kdeconnect" "flameshot-git" "ranger" "polybar" "htop" "bpytop" "cava" "kitty" "neofetch" "pywal" "nitrogen"  "nerd-fonts-source-code-pro"  "spotify-adblock-git" "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy")
+    pkglist=("lazygit" "maim" "kdeconnect" "flameshot-git" "ranger" "okular-git" "vlc" "gimp" "hplip" "ventoy-bin" "polybar" "htop" "bpytop" "cava" "kitty" "neofetch" "nitrogen"  "nerd-fonts-source-code-pro"  "spotify-adblock-git" "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy")
     echo "installing packages..."
     for p in "${pkglist[@]}"
     do
@@ -89,7 +89,7 @@ read -r -p "Install FlatPaks? (y/n)" input
 if [[ "$input" == "y" ]]
 then
     flatpakProgramList=("com.discordapp.Discord" "com.ultimaker.cura" "com.visualstudio.code" "com.github.tchx84.Flatseal" "com.jetbrains.IntelliJ-IDEA-Community"
-    "com.microsoft.Teams" "net.brinkervii.grapejuice" "org.telegram.desktop" "io.github.mimbrero.WhatsAppDesktop" "com.anydesk.Anydesk")
+    "com.microsoft.Teams" "net.brinkervii.grapejuice" "org.telegram.desktop" "io.github.mimbrero.WhatsAppDesktop" "com.anydesk.Anydesk" "io.github.shiftey.Desktop")
     yay -S --noconfirm --needed flatpak
     for p in "${flatpakProgramList[@]}"
     do
