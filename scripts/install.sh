@@ -89,7 +89,7 @@ read -r -p "Install FlatPaks? (y/n)" input
 if [[ "$input" == "y" ]]
 then
     flatpakProgramList=("com.discordapp.Discord" "com.ultimaker.cura" "com.visualstudio.code" "com.github.tchx84.Flatseal" "com.jetbrains.IntelliJ-IDEA-Community"
-    "com.microsoft.Teams" "net.brinkervii.grapejuice" "org.telegram.desktop" "io.github.mimbrero.WhatsAppDesktop" "com.anydesk.Anydesk" "io.github.shiftey.Desktop")
+    "com.microsoft.Teams" "org.telegram.desktop" "io.github.mimbrero.WhatsAppDesktop" "com.anydesk.Anydesk" "io.github.shiftey.Desktop")
     yay -S --noconfirm --needed flatpak
     for p in "${flatpakProgramList[@]}"
     do
