@@ -30,5 +30,5 @@ then
     then
         truckersmp-cli -n hcj1ok
     fi
-    ln -sf /$HOME/.local/share/truckersmp-cli /drives/hdd0/SteamLibrary/steamapps/compatdata/227300/pfx/drive_c/users/steamuser/Documents/Euro Truck Simulator 2/
+    ln -sf "/drives/hdd0/SteamLibrary/steamapps/compatdata/227300/pfx/drive_c/users/steamuser/Documents/Euro Truck Simulator 2" "/$HOME/.local/share/truckersmp-cli/Euro Truck Simulator 2/prefix/pfx/drive_c/users/steamuser/My Documents/" 
 fi
