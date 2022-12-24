@@ -9,7 +9,7 @@ echo "Backing up..."
 
 CONFIG_PATHS="$HOME/.config"
 # GIT_REPO="$HOME/.brams_dots"
-GIT_REPO="$HOME/Documents/GitHub/dotfiles"
+GIT_REPO="$HOME/Documents/dotfiles"
 
 #backup configs
 echo "backing up configs"
@@ -24,16 +24,16 @@ echo "Backup with success to $GIT_REPO"
 
 #Github section
 #cd $GIT_REPO && git init && git remote add origin https://github.com/ibndiaye/dotfiles
-read -r -p "push to github? y/n: " answer
-if [[ "$answer" == "y" ]]
-then
-  read -p "Commit message: " commitMsg
-  read -p "are you sure? (y/n)" verif
-  if [[ "$verif" == "y" ]] 
-  then
-    cd $GIT_REPO && git add . && git commit -m "$commitMsg" && git pull && git push origin main
-    echo "pushed with success"
-  fi
-  else
-    echo "wont push to the hub...exiting"
-fi
+# read -r -p "push to github? y/n: " answer
+# if [[ "$answer" == "y" ]]
+# then
+#   read -p "Commit message: " commitMsg
+#   read -p "are you sure? (y/n)" verif
+#   if [[ "$verif" == "y" ]] 
+#   then
+#     cd $GIT_REPO && git add . && git commit -m "$commitMsg" && git pull && git push origin main
+#     echo "pushed with success"
+#   fi
+#   else
+#     echo "wont push to the hub...exiting"
+# fi

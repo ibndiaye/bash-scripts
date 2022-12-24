@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 #initially created 2 dec 2022     
-printf "Quick Setup Script\n 1) Setup Section\n 2) Install Section \n 3) Backup + Push to Github\n 4) Gaming Section\n"
+printf "Quick Setup Script\n 1) Setup Section\n 2) Install Section\n 4) Gaming Section\n"
 read -p "Selection: " input
 
 

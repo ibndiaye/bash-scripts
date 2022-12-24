@@ -10,7 +10,7 @@ mydots="$HOME/Documents/dotfiles"
 if [[ ! -d "$mydots" ]]
 then
     mkdir "$mydots"
-    cd $mydots && git init && git remote add origin https://github.com/ibndiaye/dotfiles.git && git remote set-url origin git@github.com:ibndiaye/dotfiles.git
+    cd $mydots && git init && git remote add origin https://github.com/ibndiaye/dotfiles.git
 fi
 
 
