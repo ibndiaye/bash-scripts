@@ -5,12 +5,12 @@
 LIST=("cava" "fish" "rofi" "neofetch" "kitty" "i3" "MangoHud" "ranger" "polybar" "starship.toml")
 
 
-mydots="$HOME/.brams_dots"
+mydots="$HOME/Documents/dotfiles"
 
 if [[ ! -d "$mydots" ]]
 then
     mkdir "$mydots"
-    cd $mydots && git init && git remote add origin https://github.com/ibndiaye/dotfiles.git && git remote set-url origin git@github.com:ibndiaye/dotfiles.git && git checkout -b main
+    cd $mydots && git init && git remote add origin https://github.com/ibndiaye/dotfiles.git && git remote set-url origin git@github.com:ibndiaye/dotfiles.git
 fi
 
 
@@ -33,9 +33,9 @@ do
     if [[ -d "$HOME/.config/$f" ]] 
     then
         rm -rf "$HOME/.config/$f"
-        cp -r "$mydots/config/$f" "$HOME/.config/" 
+        ln -sf "$mydots/config/$f" "$HOME/.config/" 
         else
-            cp -r "$mydots/config/$f" "$HOME/.config/"
+             ln -sf "$mydots/config/$f" "$HOME/.config/"
     fi
 done
 

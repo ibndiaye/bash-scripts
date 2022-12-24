@@ -12,7 +12,7 @@ then
     rm -rf "$HOME/MangoHud"
 fi
 
-read -r -p "Install Pkgs ($pkglist)"
+read -r -p "Install Pkgs (y/n)" input
 if [ "$input" == "y" ]
 then
     for p in "${pkglist[@]}"
@@ -23,7 +23,7 @@ then
     done
 fi
 
-read -r -p "Set up Truckersmp? (y/n)"
+read -r -p "Set up Truckersmp? (y/n)" input
 if [ "$input" == "y" ]
 then
     if [ ! -d "$HOME/.local/share/truckersmp-cli" ]

@@ -8,7 +8,8 @@ LIST=("cava" "fish" "rofi" "neofetch" "kitty" "i3" "MangoHud" "ranger" "polybar"
 echo "Backing up..."
 
 CONFIG_PATHS="$HOME/.config"
-GIT_REPO="$HOME/.brams_dots"
+# GIT_REPO="$HOME/.brams_dots"
+GIT_REPO="$HOME/Documents/GitHub/dotfiles"
 
 #backup configs
 echo "backing up configs"
