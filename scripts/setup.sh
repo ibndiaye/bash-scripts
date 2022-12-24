@@ -58,3 +58,33 @@ rm -rf "$HOME/dotfiles"
 #let me get u a cheat sheet fot that
 #lets do it down here
 chmod +x ~/.config/ranger/scope.sh
+
+
+read -r -p "Set up drive?(y/n)" input
+if [ "$input" == "y" ]
+then
+    if [ ! -d "/drives" ]
+    then
+        sudo mkdir /drives
+    fi
+    read -r -p "mount point name: " mountname
+    sudo mkdir "/drives/$mountname"
+    lsblk -f
+    read -r -p "uuid: " inuu 
+    read -r -p "filesystem: " infile
+    filesys=$infile
+    uuid=$inuu
+    append="UUID=$uuid  /drives/$mountname      $filesys     noatime,x-systemd.automount,x-systemd.device-timeout=10,x-systemd.idle-timeout=1min 0 2"
+    sudo cp /etc/fstab /etc/fstab.bak
+    if  ! grep -q "$uuid" /etc/fstab 
+    then
+        echo $append | sudo tee -a /etc/fstab
+        # sudo bash -c 'echo $append >> /etc/fstab' 
+    fi
+    sudo chown -R $USER /drives
+    sudo mount -a
+fi
+
+
+
+
