@@ -50,7 +50,7 @@ fi
 read -r -p "Install Pkgs? (y/n)" input
 if [[ "$input" == "y" ]]
 then
-    pkglist=("lazygit" "maim" "rofi-greenclip" "kdeconnect" "flameshot" "ranger" "rofi" "rofi-calc" "rofi-emoji" "okular-git" "vlc" "gimp" "hplip" "ventoy-bin" "polybar" "htop" "bpytop" "cava" "kitty" "neofetch" "nitrogen"  "nerd-fonts-source-code-pro"  "spotify-adblock-git" "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy")
+    pkglist=("lazygit" "maim" "rofi-greenclip" "i3status-rust" "kdeconnect" "flameshot" "ranger" "rofi" "rofi-calc" "rofi-emoji" "okular-git" "vlc" "gimp" "hplip" "ventoy-bin" "polybar" "htop" "bpytop" "cava" "kitty" "neofetch" "nitrogen"  "nerd-fonts-source-code-pro"  "spotify-adblock-git" "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy")
     echo "installing packages..."
     for p in "${pkglist[@]}"
     do
@@ -74,7 +74,7 @@ read -r -p "Install Virt-manager? (y/n)" input
 if [[ "$input" == "y" ]]
 then
     echo "Installing and setting up virt-manager..."
-    sudo pacman -S --noconfirm --needed virt-manager qemu-base libvirt edk2-ovmf dnsmasq vde2 bridge-utils iptables-nft dmidecode
+    sudo pacman -S --needed virt-manager qemu-base libvirt edk2-ovmf dnsmasq vde2 bridge-utils iptables-nft dmidecode
     sudo systemctl enable --now libvirtd.service
     systemctl status libvirtd.service
     sudo virsh net-autostart default
