@@ -6,9 +6,7 @@ read -r -p "Build Mangohud? (y/n)" input
 
 if [ "$input" == "y" ]
 then
-    cd && git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git
-    cd MangoHud
-    ./build.sh build package release
+    cd && git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git && cd MangoHud && ./build.sh package release
     rm -rf "$HOME/MangoHud"
 fi
 
