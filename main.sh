@@ -8,7 +8,7 @@ read -p "Selection: " input
 case $input in 
   1) source scripts/setup.sh;;
   2) source scripts/install.sh;;
-  3) source scripts/backup.sh;;
+  3) source pyhton scripts/school.py;;
   4) source scripts/gaming.sh;;
   *) echo "nothing chosen"
     exit
