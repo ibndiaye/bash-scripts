@@ -61,10 +61,10 @@ then
 
     #install fonts for polybar-themes
     echo -e "\n[*] Installing fonts..."
-    cd "$HOME/Documents/" && git clone https://github.com/adi1090x/polybar-themes
+    cd && git clone https://github.com/adi1090x/polybar-themes
     [[ ! -d "$FDIR" ]] && mkdir -p "$FDIR"
-    cp -rf $HOME/Documents/polybar-themes/fonts/* "$FDIR"
-    rm -rf $HOME/Documents/polybar-themes/
+    cp -rf $HOME/polybar-themes/fonts/* "$FDIR"
+    rm -rf $HOME/polybar-themes/
     else
         echo "skipping"
 fi
