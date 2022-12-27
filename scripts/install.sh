@@ -50,12 +50,7 @@ fi
 read -r -p "Install Pkgs? (y/n)" input
 if [[ "$input" == "y" ]]
 then
-    pkglist=("lazygit" "maim" "activitywatch-bin" "rofi-greenclip" 
-        "i3status-rust" "kdeconnect" "dmenu" "flameshot" "ranger" "rofi"
-        "rofi-calc" "rofi-emoji" "okular-git" "vlc" "gimp" "hplip" "polybar" 
-        "htop" "bpytop" "cava" "kitty" "neofetch" "nitrogen"  
-        "nerd-fonts-source-code-pro"  "spotify-adblock-git" 
-        "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy")
+    pkglist=("lazygit" "maim" "thunar" "samba" "archlinux-tweak-tool-git" "activitywatch-bin" "rofi-greenclip" "i3status-rust" "kdeconnect" "flameshot" "ranger" "rofi" "rofi-calc" "rofi-emoji" "okular-git" "vlc" "gimp" "hplip" "polybar" "htop" "bpytop" "cava" "kitty" "neofetch" "nitrogen"  "nerd-fonts-source-code-pro"  "spotify-adblock-git" "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy")
     echo "installing packages..."
     for p in "${pkglist[@]}"
     do
@@ -66,10 +61,10 @@ then
 
     #install fonts for polybar-themes
     echo -e "\n[*] Installing fonts..."
-    cd "$HOME/Documents/" && git clone https://github.com/adi1090x/polybar-themes
+    cd && git clone https://github.com/adi1090x/polybar-themes
     [[ ! -d "$FDIR" ]] && mkdir -p "$FDIR"
-    cp -rf $HOME/Documents/polybar-themes/fonts/* "$FDIR"
-    rm -rf $HOME/Documents/polybar-themes/
+    cp -rf $HOME/polybar-themes/fonts/* "$FDIR"
+    rm -rf $HOME/polybar-themes/
     else
         echo "skipping"
 fi
@@ -93,9 +88,8 @@ fi
 read -r -p "Install FlatPaks? (y/n)" input
 if [[ "$input" == "y" ]]
 then
-    flatpakProgramList=("com.discordapp.Discord" "com.ultimaker.cura" 
-        "com.visualstudio.code" "com.github.tchx84.Flatseal" "com.jetbrains.IntelliJ-IDEA-Community"
-    "org.telegram.desktop" "io.github.mimbrero.WhatsAppDesktop" "com.anydesk.Anydesk" "io.github.shiftey.Desktop")
+    flatpakProgramList=("com.discordapp.Discord" "com.ultimaker.cura" "com.visualstudio.code" "com.github.tchx84.Flatseal" "com.jetbrains.IntelliJ-IDEA-Community"
+    "com.microsoft.Teams" "org.telegram.desktop" "io.github.mimbrero.WhatsAppDesktop" "com.anydesk.Anydesk" "io.github.shiftey.Desktop")
     yay -S --noconfirm --needed flatpak
     for p in "${flatpakProgramList[@]}"
     do

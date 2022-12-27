@@ -5,7 +5,7 @@
 LIST=("cava" "fish" "rofi" "neofetch" "kitty" "i3" "MangoHud" "ranger" "polybar" "starship.toml")
 
 
-mydots="$HOME/Documents/dotfiles"
+mydots="$HOME/.dotfiles"
 
 if [[ ! -d "$mydots" ]]
 then
