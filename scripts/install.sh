@@ -50,7 +50,7 @@ fi
 read -r -p "Install Pkgs? (y/n)" input
 if [[ "$input" == "y" ]]
 then
-    pkglist=("lazygit" "maim" "activitywatch-bin" "rofi-greenclip" "i3status-rust" "kdeconnect" "flameshot" "ranger" "rofi" "rofi-calc" "rofi-emoji" "okular-git" "vlc" "gimp" "hplip" "polybar" "htop" "bpytop" "cava" "kitty" "neofetch" "nitrogen"  "nerd-fonts-source-code-pro"  "spotify-adblock-git" "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy")
+    pkglist=("lazygit" "maim" "thunar" "activitywatch-bin" "rofi-greenclip" "i3status-rust" "kdeconnect" "flameshot" "ranger" "rofi" "rofi-calc" "rofi-emoji" "okular-git" "vlc" "gimp" "hplip" "polybar" "htop" "bpytop" "cava" "kitty" "neofetch" "nitrogen"  "nerd-fonts-source-code-pro"  "spotify-adblock-git" "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy")
     echo "installing packages..."
     for p in "${pkglist[@]}"
     do
