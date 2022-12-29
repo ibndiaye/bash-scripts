@@ -32,7 +32,7 @@ then
     sudo pacman -S $vid
 
     # choose video driver
-    echo "1) xf86-video-intel     2) xf86-video-amdgpu 3) nvidia 4) Skip"
+    echo "1) xf86-video-intel 2) xf86-video-amdgpu 3) nvidia 4) Skip"
     read -r -p "Choose you video card driver(default 1)(will not re-install): " vid
 
     case $vid in
@@ -50,7 +50,10 @@ fi
 read -r -p "Install Pkgs? (y/n)" input
 if [[ "$input" == "y" ]]
 then
-    pkglist=("lazygit" "maim" "thunar" "samba" "archlinux-tweak-tool-git" "activitywatch-bin" "rofi-greenclip" "i3status-rust" "kdeconnect" "flameshot" "ranger" "rofi" "rofi-calc" "rofi-emoji" "okular-git" "vlc" "gimp" "hplip" "polybar" "htop" "bpytop" "cava" "kitty" "neofetch" "nitrogen"  "nerd-fonts-source-code-pro"  "spotify-adblock-git" "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy")
+    pkglist=("lazygit" "maim" "thunar" "samba" "archlinux-tweak-tool-git" "visual-studio-code-bin" "activitywatch-bin" 
+    "rofi-greenclip" "i3status-rust" "kdeconnect" "flameshot" "ranger" "rofi" "rofi-calc" "rofi-emoji" "okular-git"
+     "vlc" "gimp" "hplip" "polybar" "htop" "bpytop" "cava" "kitty" "neofetch" "nitrogen"  "nerd-fonts-source-code-pro"  
+     "spotify-adblock-git" "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy" "dunst")
     echo "installing packages..."
     for p in "${pkglist[@]}"
     do
@@ -88,8 +91,10 @@ fi
 read -r -p "Install FlatPaks? (y/n)" input
 if [[ "$input" == "y" ]]
 then
-    flatpakProgramList=("com.discordapp.Discord" "com.ultimaker.cura" "com.visualstudio.code" "com.github.tchx84.Flatseal" "com.jetbrains.IntelliJ-IDEA-Community"
-    "com.microsoft.Teams" "org.telegram.desktop" "io.github.mimbrero.WhatsAppDesktop" "com.anydesk.Anydesk" "io.github.shiftey.Desktop")
+    flatpakProgramList=("com.discordapp.Discord" "com.ultimaker.cura"
+     "com.github.tchx84.Flatseal" "com.jetbrains.IntelliJ-IDEA-Community"
+    "com.microsoft.Teams" "org.telegram.desktop" "io.github.mimbrero.WhatsAppDesktop" 
+    "com.anydesk.Anydesk" "io.github.shiftey.Desktop")
     yay -S --noconfirm --needed flatpak
     for p in "${flatpakProgramList[@]}"
     do

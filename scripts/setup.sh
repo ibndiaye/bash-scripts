@@ -2,7 +2,7 @@
 #
 
 #main folders
-LIST=("cava" "fish" "rofi" "neofetch" "kitty" "i3" "MangoHud" "ranger" "polybar" "starship.toml")
+LIST=("cava" "fish" "rofi" "neofetch" "kitty" "i3" "MangoHud" "ranger" "polybar" "starship.toml" "dunst")
 
 
 mydots="$HOME/.dotfiles"
@@ -21,7 +21,7 @@ echo "backup existing configs - cloning git repo - dotfiles, and copying to conf
 #echo "exists"
 cp -r "$HOME/.config" "$HOME/.conifig.bak"
 
-if [[ ! -d dotfiles ]]
+if [[ ! -d dotfiles || -d .dotfiles ]]
 then
     cd && git clone https://github.com/ibndiaye/dotfiles && mv dotfiles/* $mydots
     else

@@ -1,6 +1,8 @@
 #!/bin/bash
 
-pkglist=("gamemode" "truckersmp-cli" "protontricks" "grapejuice" "steam" "wine" "game-devices-udev" "winetricks" "lutris" "heroic-games-launcher-bin" "goverlay-bin" "protonup-qt")
+pkglist=("gamemode" "truckersmp-cli" "protontricks" "grapejuice" 
+"steam" "wine" "game-devices-udev" "winetricks" "lutris" "heroic-games-launcher-bin" 
+"goverlay-bin" "protonup-qt")
 
 read -r -p "Build Mangohud? (y/n)" input
 

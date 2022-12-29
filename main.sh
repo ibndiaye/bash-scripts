@@ -4,15 +4,17 @@
 printf "Quick Setup Script\n 1) Setup Section\n 2) Install Section\n 4) Gaming Section\n"
 read -p "Selection: " input
 
-
-case $input in 
-  1) source scripts/setup.sh;;
-  2) source scripts/install.sh;;
-  3) source pyhton scripts/school.py;;
-  4) source scripts/gaming.sh;;
-  *) echo "nothing chosen"
-    exit
-esac
+# while [ -z $input ]
+# do
+  case $input in 
+    1) source scripts/setup.sh;;
+    2) source scripts/install.sh;;
+    3) python scripts/school.py;;
+    4) source scripts/gaming.sh;;
+    *) echo "nothing chosen"
+      exit
+  esac
+# done
 
 # while ! $input 
 # do

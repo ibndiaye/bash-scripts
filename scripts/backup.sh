@@ -3,20 +3,22 @@
 
 # source $(. ./setup.sh export)
 
-LIST=("cava" "fish" "rofi" "neofetch" "kitty" "i3" "MangoHud" "ranger" "polybar" "starship.toml")
+LIST=("cava" "fish" "rofi" "neofetch" "kitty" "i3" "MangoHud" "ranger" "polybar" "starship.toml" "dunst")
 
 echo "Backing up..."
 
 CONFIG_PATHS="$HOME/.config"
 # GIT_REPO="$HOME/.brams_dots"
-GIT_REPO="$HOME/Documents/dotfiles"
+GIT_REPO="$HOME/.dotfiles"
 
 #backup configs
 echo "backing up configs"
 
 for f in "${LIST[@]}"
 do
+  echo "Copying $f"
   cp -r "$CONFIG_PATHS/$f" "$GIT_REPO/config"
+  echo "Copied $f"
 done
 
 
