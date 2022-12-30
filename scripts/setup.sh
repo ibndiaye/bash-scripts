@@ -19,41 +19,54 @@ fi
 
 echo "backup existing configs - cloning git repo - dotfiles, and copying to config dir"
 #echo "exists"
-cp -r "$HOME/.config" "$HOME/.conifig.bak"
-
-if [[ ! -d dotfiles || -d .dotfiles ]]
+read -r -p 'Backup config folder? (y/n) ' input
+if [ "$input" == 'y' ]
 then
-    cd && git clone https://github.com/ibndiaye/dotfiles && mv dotfiles/* $mydots
-    else
-        mv -v $HOME/dotfiles/* $mydots
+    cp -r "$HOME/.config" "$HOME/.conifig.bak"
 fi
 
-for f in "${LIST[@]}"
-do
-    if [[ -d "$HOME/.config/$f" ]] 
+read - r -p 'Clone dotfiles and symlink the configs(y/n)' input
+if [ "$input" == 'y' ]
+then
+    if [[ ! -d dotfiles || -d .dotfiles ]]
     then
-        rm -rf "$HOME/.config/$f"
-        ln -sf "$mydots/config/$f" "$HOME/.config/" 
+        cd && git clone https://github.com/ibndiaye/dotfiles && mv dotfiles/* $mydots
         else
-             ln -sf "$mydots/config/$f" "$HOME/.config/"
+            mv -v $HOME/dotfiles/* $mydots
     fi
-done
+
+    for f in "${LIST[@]}"
+    do
+        if [[ -d "$HOME/.config/$f" ]] 
+        then
+            rm -rf "$HOME/.config/$f"
+            ln -sf "$mydots/config/$f" "$HOME/.config/" 
+            else
+                ln -sf "$mydots/config/$f" "$HOME/.config/"
+        fi
+    done
+fi
 
 #get fish
-cd && git clone https://github.com/ibndiaye/fishy && cd fishy && chmod +x install.sh && ./install.sh && rm -rf $HOME/fishy
-
-echo "cloning and moving wallpapers..."
-if [[ ! -d wallpapers ]]
+read -r -p 'Set up fish config(y/n)' input
+if [ "$input" == 'y' ]
 then
-    cd && git clone https://github.com/fkf-studios/wallpapers && mv wallpapers "$HOME/Pictures"
-    else
-        mv wallpapers "$HOME/Pictures"
-    fi
-echo "done moving wallpapers"
+    cd && git clone https://github.com/ibndiaye/fishy && cd fishy && chmod +x install.sh && ./install.sh
+fi
 
-rm -rf "$HOME/wallpapers"
-rm -rf "$HOME/dotfiles"
-#rm -rf "$HOME/my-scripts"
+read -r -p 'Clone fkf wallpaper repo(y/n)' input
+if [ "$input" == 'y' ]
+then
+    echo "cloning and moving wallpapers..."
+    if [[ ! -d wallpapers ]]
+    then
+        cd && git clone https://github.com/fkf-studios/wallpapers && mv wallpapers "$HOME/Pictures"
+        else
+            cp -r wallpapers "$HOME/Pictures"
+        fi
+    echo "done moving wallpapers"
+fi
+
 
 #let me get u a cheat sheet fot that
 #lets do it down here
@@ -81,10 +94,15 @@ then
         echo $append | sudo tee -a /etc/fstab
         # sudo bash -c 'echo $append >> /etc/fstab' 
     fi
-    sudo chown -R $USER /drives
+    sudo chown -R $USER /drives 
+    sudo chown -R $USER "/drives/$mountname"
     sudo mount -a
 fi
 
 
-
+echo 'Clearing up cloned repos'
+rm -rf "$HOME/wallpapers"
+rm -rf "$HOME/dotfiles"
+rm -rf "$HOME/fishy"
+#rm -rf "$HOME/my-scripts"
 

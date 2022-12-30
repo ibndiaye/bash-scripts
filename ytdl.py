@@ -1,8 +1,8 @@
+import os
 from pytube import YouTube
 from pytube import Playlist
 import subprocess
 
-print("Meant to run on linux but will work on windows with an empty path\nDefault path is working directory, linux users start in their $HOME ")
 
 def download(link,path):
   if 'playlist' in link:
@@ -27,6 +27,10 @@ def download(link,path):
             # yt.download()
             # subprocess.run(["mv", "yt.title", "$HOME/", {path}])
     
+
+
+print("Meant to run on linux but will work on windows with an empty path\nDefault path is working directory, linux users start in their '$HOME' ")
+print("Current working directory: ", os.getcwd())
 
 link=input("enter the yt link: ")
 path=input("enter the save path (leave empty for working directory): ")
