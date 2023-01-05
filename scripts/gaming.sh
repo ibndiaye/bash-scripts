@@ -30,6 +30,8 @@ then
     echo "done installing pkgs"
 fi
 
+grapejuice && steam && heroic
+
 read -r -p "Set up Truckersmp? (y/n)" input
 if [ "$input" == "y" ]
 then
