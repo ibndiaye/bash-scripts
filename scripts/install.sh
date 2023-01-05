@@ -53,15 +53,22 @@ then
     pkglist=("lazygit" "maim" "thunar" "samba" "archlinux-tweak-tool-git" "visual-studio-code-bin"
     "rofi-greenclip" "i3status-rust" "kdeconnect" "flameshot" "ranger" "rofi" "rofi-calc" "rofi-emoji" "okular-git"
      "vlc" "gimp" "hplip" "polybar" "htop" "bpytop" "cava" "kitty" "neofetch" "nitrogen"  "nerd-fonts-source-code-pro"  
-     "spotify-adblock-git" "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy" "dunst")
+     "spotify-adblock-git" "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy" "dunst" "picom-git" "lxappearance" "pycharm-community-edition"
+     "rofi-power-menu")
     echo "installing packages..."
     for p in "${pkglist[@]}"
     do
-        echo "installing $p"
-        yay -S --noconfirm --needed "$p"
-        echo "$p installed"
+        read -r -p "install $p?(y/n)" input
+        if [ "$input" == 'y']
+        then
+            echo "installing $p"
+            yay -S --noconfirm --needed "$p"
+            echo "$p installed"
+            else
+                echo"skipping"
+            fi
     done
-
+    timeshift
     #install fonts for polybar-themes
     echo -e "\n[*] Installing fonts..."
     cd && git clone https://github.com/adi1090x/polybar-themes
@@ -98,9 +105,15 @@ then
     yay -S --noconfirm --needed flatpak
     for p in "${flatpakProgramList[@]}"
     do
-        echo "installing $p"
-        flatpak install flathub -y --noninteractive "$p"
-        echo "$p installed"
+        read -r -p "install $p?(y/n)" input
+        if [ "$input" == 'y']
+        then
+            echo "installing $p"
+            flatpak install flathub -y --noninteractive "$p"
+            echo "$p installed"
+            else
+                echo"skipping"
+            fi
     done
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo

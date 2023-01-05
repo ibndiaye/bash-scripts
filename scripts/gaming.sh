@@ -1,25 +1,31 @@
 #!/bin/bash
 
 pkglist=("gamemode" "truckersmp-cli" "protontricks" "grapejuice" 
-"steam" "wine" "game-devices-udev" "winetricks" "lutris" "heroic-games-launcher-bin" 
+"steam" "wine" "winetricks" "lutris" "mangohud" "lib32-mangohud" "heroic-games-launcher-bin" 
 "goverlay-bin" "protonup-qt")
 
-read -r -p "Build Mangohud? (y/n)" input
+# read -r -p "Build Mangohud? (y/n)" input
 
-if [ "$input" == "y" ]
-then
-    cd && git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git && cd MangoHud && ./build.sh package release
-    rm -rf "$HOME/MangoHud"
-fi
+# if [ "$input" == "y" ]
+# then
+#     cd && git clone --recurse-submodules https://github.com/flightlessmango/MangoHud.git && cd MangoHud && ./build.sh package release
+#     rm -rf "$HOME/MangoHud"
+# fi
 
 read -r -p "Install Pkgs (y/n)" input
 if [ "$input" == "y" ]
 then
     for p in "${pkglist[@]}"
     do
-      echo "installing $p"
-      yay -S --needed "$p"
-      echo "$p installed"
+        read -r -p "install $p?(y/n)" input
+        if [ "$input" == 'y']
+        then
+            echo "installing $p"
+            yay -S --noconfirm --needed "$p"
+            echo "$p installed"
+        else
+                echo"skipping $p"
+            fi
     done
 fi
 

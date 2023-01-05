@@ -25,7 +25,7 @@ then
     cp -r "$HOME/.config" "$HOME/.conifig.bak"
 fi
 
-read - r -p 'Clone dotfiles and symlink the configs(y/n)' input
+read -r -p 'Clone dotfiles and symlink the configs(y/n)' input
 if [ "$input" == 'y' ]
 then
     if [[ ! -d dotfiles || -d .dotfiles ]]
@@ -45,6 +45,7 @@ then
                 ln -sf "$mydots/config/$f" "$HOME/.config/"
         fi
     done
+    chmod +x ~/.config/ranger/scope.sh
 fi
 
 #get fish
@@ -60,9 +61,9 @@ then
     echo "cloning and moving wallpapers..."
     if [[ ! -d wallpapers ]]
     then
-        cd && git clone https://github.com/fkf-studios/wallpapers && mv wallpapers "$HOME/Pictures"
+        cd && git clone https://github.com/fkf-studios/wallpapers && cp -r wallpapers "$HOME/Pictures/"
         else
-            cp -r wallpapers "$HOME/Pictures"
+            cp -r wallpapers "$HOME/Pictures/"
         fi
     echo "done moving wallpapers"
 fi
@@ -70,7 +71,7 @@ fi
 
 #let me get u a cheat sheet fot that
 #lets do it down here
-chmod +x ~/.config/ranger/scope.sh
+
 
 
 read -r -p "Set up drive?(y/n)" input
