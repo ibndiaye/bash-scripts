@@ -38,7 +38,7 @@ then
     case $vid in
     1) yay -S --needed xf86-video-intel;;
     2) yay -S --needed xf86-video-amdgpu;;
-    3) yay -S --needed nvidia nvidia-settings nvidia-utils;;
+    3) yay -S --needed nvidia-dkms nvidia-settings nvidia-utils;;
     4) DRI="";;
     *) yay -S --needed xf86-video-intel;;
     esac
@@ -54,21 +54,24 @@ then
     "rofi-greenclip" "i3status-rust" "kdeconnect" "flameshot" "ranger" "rofi" "rofi-calc" "rofi-emoji" "okular-git"
      "vlc" "gimp" "hplip" "polybar" "htop" "bpytop" "cava" "kitty" "neofetch" "nitrogen"  "nerd-fonts-source-code-pro"  
      "spotify-adblock-git" "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy" "dunst" "picom-git" "lxappearance" "pycharm-community-edition"
-     "rofi-power-menu")
+     "rofi-power-menu" "pavucontrol")
     echo "installing packages..."
     for p in "${pkglist[@]}"
     do
         read -r -p "install $p?(y/n)" input
-        if [ "$input" == 'y']
+        if [ "$input" == 'y' ]
         then
             echo "installing $p"
             yay -S --noconfirm --needed "$p"
             echo "$p installed"
             else
-                echo"skipping"
+                echo "skipping $p"
             fi
     done
-    timeshift
+    
+    echo "done installing pkgs"
+    sudo grub-mkconfig && timeshift
+
     #install fonts for polybar-themes
     echo -e "\n[*] Installing fonts..."
     cd && git clone https://github.com/adi1090x/polybar-themes
@@ -106,17 +109,19 @@ then
     for p in "${flatpakProgramList[@]}"
     do
         read -r -p "install $p?(y/n)" input
-        if [ "$input" == 'y']
+        if [ "$input" == 'y' ]
         then
             echo "installing $p"
             flatpak install flathub -y --noninteractive "$p"
             echo "$p installed"
             else
-                echo"skipping"
+                echo "skipping $p"
             fi
     done
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+
+    echo "done installing flatpaks"
 fi
 
 

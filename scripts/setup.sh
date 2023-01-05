@@ -98,6 +98,7 @@ then
     sudo chown -R $USER /drives 
     sudo chown -R $USER "/drives/$mountname"
     sudo mount -a
+    echo "drive mounted"
 fi
 
 

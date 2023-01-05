@@ -18,15 +18,16 @@ then
     for p in "${pkglist[@]}"
     do
         read -r -p "install $p?(y/n)" input
-        if [ "$input" == 'y']
+        if [ "$input" == 'y' ]
         then
             echo "installing $p"
-            yay -S --noconfirm --needed "$p"
+            yay -S --needed "$p"
             echo "$p installed"
         else
-                echo"skipping $p"
+                echo "skipping $p"
             fi
     done
+    echo "done installing pkgs"
 fi
 
 read -r -p "Set up Truckersmp? (y/n)" input
