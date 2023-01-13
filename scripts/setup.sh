@@ -7,17 +7,16 @@ LIST=("cava" "fish" "rofi" "neofetch" "kitty" "i3" "MangoHud" "ranger" "polybar"
 
 mydots="$HOME/.dotfiles"
 
-if [[ ! -d "$mydots" ]]
-then
-    mkdir "$mydots"
-    cd $mydots && git init && git remote add origin https://github.com/ibndiaye/dotfiles.git && git remote set-url origin git@github.com:ibndiaye/dotfiles.git
-fi
+# if [[ ! -d "$mydots" ]]
+# then
+#     mkdir "$mydots"
+#     cd $mydots && git init && git remote add origin https://github.com/ibndiaye/dotfiles.git && git remote set-url origin git@github.com:ibndiaye/dotfiles.git
+# fi
 
 
 
 #the state of mind while writing this script : WHAT the fuck am i doing here
 
-echo "backup existing configs - cloning git repo - dotfiles, and copying to config dir"
 #echo "exists"
 read -r -p 'Backup config folder? (y/n) ' input
 if [ "$input" == 'y' ]
@@ -30,9 +29,9 @@ if [ "$input" == 'y' ]
 then
     if [[ ! -d dotfiles || -d .dotfiles ]]
     then
-        cd && git clone https://github.com/ibndiaye/dotfiles && mv dotfiles/* $mydots
+        cd && git clone https://github.com/ibndiaye/dotfiles && mv dotfiles/ .dotfiles/
         else
-            mv -v $HOME/dotfiles/* $mydots
+            cd && mv dotfiles/ .dotfiles/
     fi
 
     for f in "${LIST[@]}"
