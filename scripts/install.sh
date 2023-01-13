@@ -50,11 +50,11 @@ fi
 read -r -p "Install Pkgs? (y/n)" input
 if [[ "$input" == "y" ]]
 then
-    pkglist=("lazygit" "maim" "thunar" "samba" "archlinux-tweak-tool-git" "visual-studio-code-bin"
+    pkglist=("lazygit" "autotiling" "maim" "thunar" "samba" "archlinux-tweak-tool-git" "visual-studio-code-bin"
     "rofi-greenclip" "i3status-rust" "kdeconnect" "flameshot" "ranger" "rofi" "rofi-calc" "rofi-emoji" "okular-git"
      "vlc" "gimp" "hplip" "polybar" "htop" "bpytop" "cava" "kitty" "neofetch" "nitrogen"  "nerd-fonts-source-code-pro"  
      "spotify-adblock-git" "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy" "dunst" "picom-git" "lxappearance" "pycharm-community-edition"
-     "rofi-power-menu" "pavucontrol")
+     "rofi-power-menu" "pavucontrol" "tilp")
     echo "installing packages..."
     for p in "${pkglist[@]}"
     do

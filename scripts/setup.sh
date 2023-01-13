@@ -87,7 +87,7 @@ then
     read -r -p "filesystem: " infile
     filesys=$infile
     uuid=$inuu
-    append="UUID=$uuid  /drives/$mountname      $filesys     noatime,x-systemd.automount,x-systemd.device-timeout=10,x-systemd.idle-timeout=1min 0 2"
+    append="UUID=$uuid  /drives/$mountname      $filesys     noatime,x-systemd.automount,x-systemd.idle-timeout=1min 0 2"
     sudo cp /etc/fstab /etc/fstab.bak
     if  ! grep -q "$uuid" /etc/fstab 
     then
@@ -97,6 +97,7 @@ then
     sudo chown -R $USER /drives 
     sudo chown -R $USER "/drives/$mountname"
     sudo mount -a
+    systemctl daemon-reload
     echo "drive mounted"
 fi
 
