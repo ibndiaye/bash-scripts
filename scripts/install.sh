@@ -50,11 +50,36 @@ fi
 read -r -p "Install Pkgs? (y/n)" input
 if [[ "$input" == "y" ]]
 then
-    pkglist=("lazygit" "autotiling" "maim" "thunar" "samba" "archlinux-tweak-tool-git" "visual-studio-code-bin"
-    "rofi-greenclip" "i3status-rust" "kdeconnect" "flameshot" "ranger" "rofi" "rofi-calc" "rofi-emoji" "okular-git"
-     "vlc" "gimp" "hplip" "polybar" "htop" "bpytop" "cava" "kitty" "neofetch" "nitrogen"  "nerd-fonts-source-code-pro"  
-     "spotify-adblock-git" "timeshift" "timeshift-autosnap" "tldr" "grub-btrfs" "scrcpy" "dunst" "picom-git" "lxappearance" "pycharm-community-edition"
-     "rofi-power-menu" "pavucontrol" "tilp")
+    pkglist=()
+
+    read -r -p "Install rofi pkgs? (y/n)" input
+    if [ "$input" == 'y' ]
+        then
+            rofiPkgs=("rofi-greenclip" "flameshot" "ranger" "rofi" "rofi-calc" "rofi-emoji")
+            pkglist+=$rofiPkgs
+    fi
+    
+    read -r -p "Install WM pkgs? (y/n)" input
+    if [ "$input" == 'y' ]
+        then
+            wmPkgs=("lazygit" "autotiling" "polybar" "dunst" "picom" "lxappearance" "nitrogen" "rofi-power-menu" "pavucontrol")
+            pkglist+=$wmPkgs
+    fi
+    
+    read -r -p "Install misc pkgs? (y/n)" input
+    if [ "$input" == 'y' ]
+        then
+            miscPkgs=("mpv" "gimp" "hplip" "htop" "cava" "kitty" "neofetch"  "spotify-adblock-git" "pavucontrol" "tilp" "scrcpy" )
+            pkglist+=$miscPkgs
+    fi
+    
+    read -r -p "Install btrfs pkgs? (y/n)" input
+    if [ "$input" == 'y' ]
+        then
+            btrfsPkgs=("timeshift" "timeshift-autosnap" "tldr" "grub-btrfs")
+            pkglist+=$btrfsPkgs
+    fi
+    
     echo "installing packages..."
     for p in "${pkglist[@]}"
     do
@@ -70,16 +95,17 @@ then
     done
     
     echo "done installing pkgs"
-    sudo grub-mkconfig && timeshift
+    
+    #sudo grub-mkconfig && timeshift
 
-    #install fonts for polybar-themes
-    echo -e "\n[*] Installing fonts..."
-    cd && git clone https://github.com/adi1090x/polybar-themes
-    [[ ! -d "$FDIR" ]] && mkdir -p "$FDIR"
-    cp -rf $HOME/polybar-themes/fonts/* "$FDIR"
-    rm -rf $HOME/polybar-themes/
-    else
-        echo "skipping"
+    # #install fonts for polybar-themes
+    # echo -e "\n[*] Installing fonts..."
+    # cd && git clone https://github.com/adi1090x/polybar-themes
+    # [[ ! -d "$FDIR" ]] && mkdir -p "$FDIR"
+    # cp -rf $HOME/polybar-themes/fonts/* "$FDIR"
+    # rm -rf $HOME/polybar-themes/
+    # else
+    #     echo "skipping"
 fi
 
 #virt man setup
