@@ -56,28 +56,28 @@ then
     if [ "$input" == 'y' ]
         then
             rofiPkgs=("rofi-greenclip" "flameshot" "ranger" "rofi" "rofi-calc" "rofi-emoji")
-            pkglist+=$rofiPkgs
+            pkglist+=("${rofiPkgs[@]}")
     fi
     
     read -r -p "Install WM pkgs? (y/n)" input
     if [ "$input" == 'y' ]
         then
             wmPkgs=("lazygit" "autotiling" "polybar" "dunst" "picom" "lxappearance" "nitrogen" "rofi-power-menu" "pavucontrol")
-            pkglist+=$wmPkgs
+            pkglist+=("${wmPkgs[@]}")
     fi
     
     read -r -p "Install misc pkgs? (y/n)" input
     if [ "$input" == 'y' ]
         then
             miscPkgs=("mpv" "gimp" "hplip" "htop" "cava" "kitty" "neofetch"  "spotify-adblock-git" "pavucontrol" "tilp" "scrcpy" )
-            pkglist+=$miscPkgs
+            pkglist+=("${miscPkgs[@]}")
     fi
     
     read -r -p "Install btrfs pkgs? (y/n)" input
     if [ "$input" == 'y' ]
         then
             btrfsPkgs=("timeshift" "timeshift-autosnap" "tldr" "grub-btrfs")
-            pkglist+=$btrfsPkgs
+            pkglist+=("${btrfsPkgs[@]}")
     fi
     
     echo "installing packages..."
